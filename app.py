@@ -46,10 +46,10 @@ def scan():
         results.append({'vulnerability': 'Open Redirect', 'url': redirect_test_url, 'solution': 'Validate and sanitize user-provided URLs to prevent redirection to untrusted domains.'})
 
     # Security Headers check
-    headers_to_check = ['X-Content-Type-Options', 'Content-Security-Policy', 'X-Frame-Options']
-    missing_headers = [header for header in headers_to_check if header not in response.headers]
-    if missing_headers:
-        results.append({'vulnerability': 'Missing Security Headers', 'headers': missing_headers, 'solution': 'Ensure the server includes recommended security headers.'})
+    # headers_to_check = ['X-Content-Type-Options', 'Content-Security-Policy', 'X-Frame-Options']
+    # missing_headers = [header for header in headers_to_check if header not in response.headers]
+    # if missing_headers:
+    #     results.append({'vulnerability': 'Missing Security Headers', 'headers': missing_headers, 'solution': 'Ensure the server includes recommended security headers.'})
 
     # Directory Traversal test
     traversal_payload = "../etc/passwd"
