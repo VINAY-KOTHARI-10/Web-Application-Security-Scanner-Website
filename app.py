@@ -27,10 +27,10 @@ def scan():
         results.append({'vulnerability': 'SQL Injection', 'url': url, 'solution': 'Use prepared statements or parameterized queries.'})
 
     # # XSS test
-    # xss_payload = "<script>alert('XSS')</script>"
-    # response = requests.get(url, params={'test': xss_payload})
-    # if xss_payload in response.text:
-    #     results.append({'vulnerability': 'Cross-Site Scripting (XSS)', 'url': url, 'solution': 'Sanitize and validate all user inputs and encode output properly.'})
+    xss_payload = "<script>alert('XSS')</script>"
+    response = requests.get(url, params={'test': xss_payload})
+    if xss_payload in response.text:
+        results.append({'vulnerability': 'Cross-Site Scripting (XSS)', 'url': url, 'solution': 'Sanitize and validate all user inputs and encode output properly.'})
 
     # Form scanning for CSRF checks
     soup = BeautifulSoup(response.text, 'html.parser')
